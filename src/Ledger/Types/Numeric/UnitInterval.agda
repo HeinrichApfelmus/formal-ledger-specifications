@@ -6,6 +6,8 @@ module Ledger.Types.Numeric.UnitInterval where
 open import Prelude
   hiding ([_,_]; [_])
 
+open import Class.DecEq.Instances.Extra
+  using (DeqEq-Refinement)
 open import Data.Irrelevant
   using ([_])
 import Data.Rational as ℚ
@@ -70,6 +72,10 @@ prop-inUnitInterval-* x y ux (0≤y , y≤1) =
 -- Rational number in the unit interval [0, 1].
 UnitInterval : Type
 UnitInterval = [ x ∈ ℚ ∣ inUnitInterval x ]
+
+instance
+  DecEq-UnitInterval : DecEq UnitInterval
+  DecEq-UnitInterval = DeqEq-Refinement ℚ inUnitInterval
 
 -- In the cardano-ledger codebase:
 --  unboundRational
