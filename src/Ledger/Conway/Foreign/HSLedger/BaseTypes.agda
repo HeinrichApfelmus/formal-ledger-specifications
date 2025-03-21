@@ -79,10 +79,7 @@ unquoteDecl = do
   hsTypeAlias Epoch
   hsTypeAlias ScriptHash
 
-{-----------------------------------------------------------------------------
-    UnitInterval
-------------------------------------------------------------------------------}
--- Haskell type corresponding to 'UnitInterval'
+-- UnitInterval: Haskell type corresponding to 'UnitInterval'
 record HsUnitInterval : Type where
   field getHsUnitInterval : F.Rational
     -- I would like to use ℚ here, but F.Rational converts better.
